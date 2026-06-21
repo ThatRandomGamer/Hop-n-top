@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void CalculateDistance()
     {
-        Distance = Mathf.Max(0,Mathf.FloorToInt(transform.position.y / 2f));
+        Distance = Mathf.Max(0, Mathf.FloorToInt(transform.position.y / 2f));
     }
 
     private void HandleInput()
@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 screenPos = Input.mousePosition;
+        if (float.IsInfinity(screenPos.x) || float.IsInfinity(screenPos.y) ||
+            float.IsNaN(screenPos.x) || float.IsNaN(screenPos.y))
+        {
+            return;
+        }
+
         screenPos.z = Mathf.Abs(Camera.main.transform.position.z);
 
         Vector2 pointerPos =
@@ -73,9 +79,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 dragVector = dragStart - dragCurrent;
 
-        float dragDistance =Mathf.Clamp(dragVector.magnitude,0f,maxDragDistance);
+        float dragDistance = Mathf.Clamp(dragVector.magnitude, 0f, maxDragDistance);
 
-        float jumpForce =Mathf.Lerp(minJumpForce,maxJumpForce,dragDistance / maxDragDistance);
+        float jumpForce = Mathf.Lerp(minJumpForce, maxJumpForce, dragDistance / maxDragDistance);
 
         rb.linearVelocity = Vector2.zero;
 
