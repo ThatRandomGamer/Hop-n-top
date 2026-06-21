@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2198140485002523553}
   - component: {fileID: 1246669812407441757}
   - component: {fileID: 5531070089048410930}
-  - component: {fileID: 1462641471258451470}
   - component: {fileID: 1413383985723544552}
   m_Layer: 3
   m_Name: Plat2 11
@@ -140,20 +139,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.79, y: 0.38}
   m_EdgeRadius: 0
---- !u!114 &1462641471258451470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820588996082128861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ede62f29c842f428e681ad314fe4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Platform
-  SFXManager: {fileID: 0}
-  breakSound: {fileID: 0}
 --- !u!60 &1413383985723544552
 PolygonCollider2D:
   m_ObjectHideFlags: 0
