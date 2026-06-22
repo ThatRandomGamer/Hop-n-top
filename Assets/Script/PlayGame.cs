@@ -16,6 +16,6 @@ public class PlayGame : MonoBehaviour
         // After closing ad, "Bird" scene will load
         //  AdManager.Instance.ShowInterstitialAd(LevelName);
 
-        SceneManager.LoadScene(LevelName);
+        AdManager.Instance.ShowInterstitialAd(LevelName);
     }
 }
