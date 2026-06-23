@@ -1,0 +1,101 @@
+{
+  "missions": [
+    {
+      "id": 1,
+      "title": "Travel 50m in one run",
+      "type": 0,
+      "difficulty": 0,
+      "target": 50,
+      "reward": 25
+    },
+    {
+      "id": 2,
+      "title": "Travel 100m in one run",
+      "type": 0,
+      "difficulty": 0,
+      "target": 100,
+      "reward": 40
+    },
+    {
+      "id": 3,
+      "title": "Travel 150m in one run",
+      "type": 0,
+      "difficulty": 0,
+      "target": 150,
+      "reward": 50
+    },
+    {
+      "id": 4,
+      "title": "Collect 10 coins in one run",
+      "type": 1,
+      "difficulty": 0,
+      "target": 10,
+      "reward": 25
+    },
+    {
+      "id": 5,
+      "title": "Collect 20 coins in one run",
+      "type": 1,
+      "difficulty": 0,
+      "target": 20,
+      "reward": 40
+    },
+    {
+      "id": 6,
+      "title": "Collect 30 coins in one run",
+      "type": 1,
+      "difficulty": 0,
+      "target": 30,
+      "reward": 50
+    },
+
+    {
+      "id": 100,
+      "title": "Travel 300m in one run",
+      "type": 0,
+      "difficulty": 1,
+      "target": 300,
+      "reward": 100
+    },
+    {
+      "id": 101,
+      "title": "Travel 500m in one run",
+      "type": 0,
+      "difficulty": 1,
+      "target": 500,
+      "reward": 150
+    },
+    {
+      "id": 102,
+      "title": "Travel 750m in one run",
+      "type": 0,
+      "difficulty": 1,
+      "target": 750,
+      "reward": 200
+    },
+    {
+      "id": 103,
+      "title": "Collect 50 coins in one run",
+      "type": 1,
+      "difficulty": 1,
+      "target": 50,
+      "reward": 100
+    },
+    {
+      "id": 104,
+      "title": "Collect 75 coins in one run",
+      "type": 1,
+      "difficulty": 1,
+      "target": 75,
+      "reward": 150
+    },
+    {
+      "id": 105,
+      "title": "Collect 100 coins in one run",
+      "type": 1,
+      "difficulty": 1,
+      "target": 100,
+      "reward": 200
+    }
+  ]
+}
