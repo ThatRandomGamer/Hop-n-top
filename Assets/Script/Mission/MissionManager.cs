@@ -87,8 +87,15 @@ public class MissionManager : MonoBehaviour
         saveData.activeMissions.Clear();
 
         AddRandomMission(MissionDifficulty.Easy);
+        AddRandomMission(MissionDifficulty.Easy);
         AddRandomMission(MissionDifficulty.Medium);
-        AddRandomMission(MissionDifficulty.Medium);
+
+        Debug.Log("=== ACTIVE MISSIONS ===");
+
+        foreach (var mission in saveData.activeMissions)
+        {
+            Debug.Log($"Mission ID: {mission.missionId}");
+        }
     }
 
     void AddRandomMission(MissionDifficulty difficulty)
@@ -213,4 +220,89 @@ public class MissionManager : MonoBehaviour
                 definition.target;
         }
     }
+
+    public MissionDefinition GetMissionDefinition(int missionId)
+    {
+        return missionDB.missions.Find(
+            x => x.id == missionId);
+    }
+
+    public AchievementDefinition GetAchievementDefinition(int achievementId)
+    {
+        return achievementDB.achievements.Find(
+            x => x.id == achievementId);
+    }
+
+    public void UpdateRunDistance(int distance)
+    {
+        foreach (var mission in saveData.activeMissions)
+        {
+            MissionDefinition definition =
+                GetMissionDefinition(mission.missionId);
+
+            if (definition.type == TaskType.DistanceOneRun)
+            {
+                mission.progress = distance;
+
+                if (distance >= definition.target)
+                    mission.completed = true;
+            }
+        }
+    }
+
+    public void UpdateRunCoins(int coins)
+    {
+        foreach (var mission in saveData.activeMissions)
+        {
+            MissionDefinition definition =
+                GetMissionDefinition(mission.missionId);
+
+            if (definition.type == TaskType.CoinsOneRun)
+            {
+                mission.progress = coins;
+
+                if (coins >= definition.target)
+                    mission.completed = true;
+            }
+        }
+    }
+
+    public void ClaimMission(int index)
+    {
+        MissionProgress mission =
+            saveData.activeMissions[index];
+
+        if (!mission.completed)
+            return;
+
+        MissionDefinition definition =
+            GetMissionDefinition(mission.missionId);
+
+        Debug.Log("Claimed: " + definition.title);
+
+        saveData.activeMissions.RemoveAt(index);
+
+        AddRandomMission(definition.difficulty);
+
+        SaveGame();
+    }
+
+    public void ClaimAchievement(int index)
+    {
+        AchievementProgress achievement =
+            saveData.achievements[index];
+
+        if (!achievement.completed)
+            return;
+
+        if (achievement.claimed)
+            return;
+
+        achievement.claimed = true;
+
+        Debug.Log("Achievement Claimed");
+
+        SaveGame();
+    }
+
 }
